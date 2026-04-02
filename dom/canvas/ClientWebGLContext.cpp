@@ -198,7 +198,8 @@ ClientWebGLContext::ClientWebGLContext(const bool webgl2)
     : mIsWebGL2(webgl2),
       mExtLoseContext(new ClientWebGLExtensionLoseContext(*this)) {}
 
-static inline void SafeReleaseNotLostData(std::shared_ptr<webgl::NotLostData>& notLost) {
+static inline void SafeReleaseNotLostData(
+    std::shared_ptr<webgl::NotLostData>& notLost) {
   if (notLost) {
     const auto keepAlive = std::move(notLost);
     keepAlive->extensions = {};
